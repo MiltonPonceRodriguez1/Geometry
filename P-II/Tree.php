@@ -1,15 +1,18 @@
 <?php 
 
 require_once "Node.php";
+require_once "Point.php";
 /**
  * 
  */
 class Tree {
 	private $root;
 	private $by;
+	private $points_rect = array();
+	public $cont = 0;
 
 	function __construct(string $by) {
-		$this->by = $by; 
+		$this->by = $by;
 	}
 
 	public function construct(array $points) {
@@ -65,15 +68,11 @@ class Tree {
 	}
 
 	public function inOrden($node) {
-		/*$aux = array();
-
-		if($node->point->getx() >= ...) {
-			array_push($aux, $noce->point);
-		}*/
+		
     	if ($node == null) {
         	return ;
     	}
- 
+
     	/* first recur on left child */
     	$this->inOrden($node->left);
  
@@ -82,6 +81,65 @@ class Tree {
  
     	/* now recur on right child */
     	$this->inOrden($node->right);
+	}
+
+	public function query_2D($node, Point $p1, Point $p2) {
+		$this->cont += 1;
+		if ($node == null) {
+        	return ;
+    	}
+
+		if(
+			($node->point->getX() >= $p1->getX() && $node->point->getX() <= $p2->getX()) && 
+			($node->point->getY() >= $p1->getY() && $node->point->getY() <= $p2->getY())
+		) {
+			//echo "Si entro CHIDO xd!<br/>";
+			array_push($this->points_rect, $node->point);
+		}
+		
+ 
+    	/* first recur on left child */
+    	$this->query_2D($node->left, $p1, $p2);
+ 
+    	/* then print the data of $node */
+    	//echo  $node->point->getX()." ";
+ 
+    	/* now recur on right child */
+    	$this->query_2D($node->right, $p1, $p2);
+	}
+
+	public function query_2D_RECURSIVE($node, Point $p1, Point $p2) {
+		$this->cont += 1;
+		if ($node == null) {
+        	return ;
+    	}
+
+		
+		if(
+			($node->point->getX() >= $p1->getX() && $node->point->getX() <= $p2->getX()) && 
+			($node->point->getY() >= $p1->getY() && $node->point->getY() <= $p2->getY())
+		) {
+			array_push($this->points_rect, $node->point);
+		}
+ 
+    	/* first recur on left child */
+		if ( $node->point->getX() < $p1->getX() ) {
+			//echo "DERECHA<br/>";
+			$this->query_2D_RECURSIVE($node->right, $p1, $p2);
+		} elseif( $node->point->getX() > $p2->getX() ) {
+			//echo "IZQUIERDA<br/>";
+			$this->query_2D_RECURSIVE($node->left, $p1, $p2);
+			
+		} else {
+			//echo "AMBOS<br/>";
+			$this->query_2D_RECURSIVE($node->left, $p1, $p2);
+			$this->query_2D_RECURSIVE($node->right, $p1, $p2);
+		}
+    	
+	}
+
+	public function getPointsRect(){
+		return $this->points_rect;
 	}
 }
 

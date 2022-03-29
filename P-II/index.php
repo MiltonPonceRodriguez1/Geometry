@@ -10,23 +10,23 @@ $point4 = new Point(3.0, 3.0);
 $point5 = new Point(4.0, 4.0);
 $point6 = new Point(5.0, 5.0);
 $point7 = new Point(6.0, 6.0);
+$array = array();
+/*for ($i=0; $i <= 1000 ; $i++) { 
+    array_push($array, new Point((float) $i, (float) $i));
+}*/
+
+//var_dump($array);die();
 
 $array = array($point5, $point2, $point1, $point4, $point3, $point6, $point7);
-var_dump($array);
 
 $tree = new Tree("x");
 $nodo = $tree->construct($array);
-//var_dump($nodo);die()
-var_dump($tree->getRoot()->left->point);
+
 $tree->inOrden($tree->getRoot());
 
-//var_dump($tree->getRoot()->right->right);
+$tree->query_2D_RECURSIVE($tree->getRoot(), new Point(0.0, 0.0), new Point(7.0, 7.0));
+$arr = $tree->getPointsRect();
+var_dump($tree->cont);
+var_dump($arr);
+
 die();
-
-$tree = new Tree("x");
-echo '<h1>'.$tree->construct().'</h1>';
-var_dump($tree);die();
-
-
-
-?>
