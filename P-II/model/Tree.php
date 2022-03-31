@@ -17,9 +17,7 @@ class Tree {
 
 	public function construct(array $points) {
 		
-		sort($points); // Aca falta poner que lo ordene por el by
-
-		//var_dump($points);die();
+		sort($points);
 		$this->root = 	$this->utilConstruct($points);
 	}
 
@@ -27,7 +25,6 @@ class Tree {
 		if (count($points) == 0) {
 			return null;
 		} elseif (count($points) == 1) {
-			//$node = new Node($points[0], $points);
 			return new Node($points[0], $points);
 		} else {
 			$med = intdiv(count($points), 2);
@@ -67,22 +64,6 @@ class Tree {
 		return $this->root;
 	}
 
-	public function inOrden($node) {
-		
-    	if ($node == null) {
-        	return ;
-    	}
-
-    	/* first recur on left child */
-    	$this->inOrden($node->left);
- 
-    	/* then print the data of $node */
-    	echo  $node->point->getX()." ";
- 
-    	/* now recur on right child */
-    	$this->inOrden($node->right);
-	}
-
 	public function query2D($node, Point $p1, Point $p2) {
 		$this->cont += 1;
 		if ($node == null) {
@@ -93,18 +74,10 @@ class Tree {
 			($node->point->getX() >= $p1->getX() && $node->point->getX() <= $p2->getX()) && 
 			($node->point->getY() >= $p1->getY() && $node->point->getY() <= $p2->getY())
 		) {
-			//echo "Si entro CHIDO xd!<br/>";
 			array_push($this->points_rect, $node->point);
 		}
 		
- 
-    	/* first recur on left child */
     	$this->query2D($node->left, $p1, $p2);
- 
-    	/* then print the data of $node */
-    	//echo  $node->point->getX()." ";
- 
-    	/* now recur on right child */
     	$this->query2D($node->right, $p1, $p2);
 	}
 

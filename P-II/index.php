@@ -86,8 +86,8 @@
 
     
 
-    <script src="js/ajax.js"></script>
-    <script src="js/draw.js"></script>
+    <script src="assets/js/ajax.js"></script>
+    <script src="assets/js/draw.js"></script>
 
 </body>
 </html>
