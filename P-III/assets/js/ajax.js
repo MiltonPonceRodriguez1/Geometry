@@ -12,7 +12,8 @@ $(document).ready(function() {
 
                 if (response_data.status == 'success') {
                     // Salvamos los resultados de Graham
-                    localStorage.setItem('response_data', JSON.stringify( response_data ) );
+                    localStorage.setItem('response_data', JSON.stringify(response_data));
+                    localStorage.setItem('steps', 2);
                     alert('Ejecución Finalizada Correctamente !!');
                 }
                 else

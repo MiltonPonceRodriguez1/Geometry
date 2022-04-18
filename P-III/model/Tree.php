@@ -49,6 +49,23 @@ class Tree {
 		return $node;
 	}
 
+	public function assign_axis($node, $depth=0) {
+		// CASO BASE
+		if($node == null) {
+			return;
+		}
+	
+		$axis = $depth % 2;
+
+		$this->assign_axis($node->left, $depth + 1);
+		if($axis == 0) { // SE PRIORIZA EL EJE DE LAS X
+			$node->point->setAxis("y");
+		} else { // SE PRIORIZA EL EJE DE LAS Y
+			$node->point->setAxis("x");
+		}
+		$this->assign_axis($node->right, $depth + 1);
+	}
+
 	public function search_neighbor($node, $point, $depth = 0) {
 		if($node == null) {
 			return;
@@ -86,7 +103,7 @@ class Tree {
 	
 		$this->printInOrder($node->left);
 	
-		echo '  ('.$node->point->getX().' , '.$node->point->getY().')  <br>';
+		echo '  ('.$node->point->getX().' , '.$node->point->getY().') <br>';
 	
 		$this->printInOrder($node->right);
 	}

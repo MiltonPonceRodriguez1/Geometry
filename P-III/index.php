@@ -37,20 +37,14 @@
     </figure>
 
     <div class="container botons mt-4">
-        <div class="row justify-content-md-right">
-            <form id="loginform" method="post" class="row justify-content-right">
-                <div class="form-row row align-items-right">
-
-                    <div class="col-md-4"></div>
+        <div class="row">
+            <form id="loginform" method="post">
+                <div class="form-row row d-flex justify-content-center">
+                    <div class="col-md-2"></div>
+                    
                     
                     <div class="col-auto">
-                        <input type="text" class="form-control mb-2" name="point_1" id="point_1" placeholder="Enter point 1 Rect: x, y">
-                    </div>
-
-                    <div class="col-auto">
-                        <div class="input-group mb-2">
-                            <input type="text" class="form-control" name="point_2" id="point_2" placeholder="Enter point 2 Rect: x, y">
-                        </div>
+                        <input type="text" class="form-control mb-2" name="point_1" id="point_1" placeholder="Enter Point Neighbor: x, y">
                     </div>
 
                     <div class="col-auto">

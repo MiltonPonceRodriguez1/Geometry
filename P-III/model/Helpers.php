@@ -10,21 +10,12 @@ class Helpers {
             $point_json = array(
                 'x' => $point->getX(),
                 'y' => $point->getY(),
+                'axis' => $point->getAxis()
             );
     
             array_push($new_points, $point_json);
         }
     
         return $new_points;
-    }
-
-    public static function json_encode_point($point) {
-    
-        $point_json = array(
-            'x' => $point->getX(),
-            'y' => $point->getY(),
-        );
-    
-        return $point_json;
     }
 }

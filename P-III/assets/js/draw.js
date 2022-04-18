@@ -8,67 +8,86 @@ function draw2D() {
     ctx.clearRect(0, 0, 1000, 1000);
 
     var points = response_data['points'];
-    var points_rect = response_data['points_rect'];
+    var neighbor = response_data['neighbor'];
+    var user_point = response_data['user_point'];
+    var steps = localStorage.getItem('steps');
+    steps = parseInt(steps);
+    //var points_rect = response_data['points_rect'];
+
+    console.log(steps);
     
 
-    var trasladar = 20 ;
-    var dez_x = 0;
-    var dez_y = 28;
-    
+    var trasladar = 7;
+    var dez_x = 50;
+    var dez_y = 70;
 
-    var points = response_data['points'];
-    console.log(points[0].x, points[0].y);
 
     var pointSize = 4; // Cambia el tamaño del punto
     ctx.fillStyle = "black"; // Color rojo
     
-    for(i=0; i<points.length; i++) {
+    /*for(i=0; i < points.length; i++) {
         points[i].y *= -1; 
         ctx.beginPath(); // Iniciar trazo
         ctx.arc( (points[i].x + dez_x ) * trasladar , (points[i].y + dez_y) * trasladar, pointSize, 0, Math.PI * 2, true); // Dibujar un punto usando la funcion arc
         ctx.fill(); // Terminar trazo
     }
 
-    var pointSize = 4.2; // Cambia el tamaño del punto
-    ctx.fillStyle = "#1832F9"; // Color rojo
+    var pointSize = 5; // Cambia el tamaño del punto
+    ctx.fillStyle = "red"; // Color rojo
+    neighbor[0].y *= -1; 
+    ctx.beginPath(); // Iniciar trazo
+    ctx.arc( (neighbor[0].x + dez_x ) * trasladar , (neighbor[0].y + dez_y) * trasladar, pointSize, 0, Math.PI * 2, true); // Dibujar un punto usando la funcion arc
+    ctx.fill(); // Terminar trazo
 
-    for(i=0; i<points_rect.length; i++) {
-        points_rect[i].y *= -1;
+    var pointSize = 5; // Cambia el tamaño del punto
+    ctx.fillStyle = "blue"; // Color rojo
+    user_point[0].y *= -1; 
+    ctx.beginPath(); // Iniciar trazo
+    ctx.arc( (user_point[0].x + dez_x ) * trasladar , (user_point[0].y + dez_y) * trasladar, pointSize, 0, Math.PI * 2, true); // Dibujar un punto usando la funcion arc
+    ctx.fill(); // Terminar trazo
+    */
+
+    var pointSize = 4; // Cambia el tamaño del punto
+    ctx.fillStyle = "black"; // Color rojo
+
+   
+    
+    for(i=0; i<steps-1; i++) {
+        //ctx.fillStyle = "black"; // Color rojo
+        console.log(steps);
+        console.log(points.length);
+        points[i].y *= -1; 
         ctx.beginPath(); // Iniciar trazo
-        ctx.arc( (points_rect[i].x + dez_x ) * trasladar , (points_rect[i].y + dez_y) * trasladar, pointSize, 0, Math.PI * 2, true); // Dibujar un punto usando la funcion arc
+        ctx.arc( (points[i].x + dez_x ) * trasladar , (points[i].y + dez_y) * trasladar, pointSize, 0, Math.PI * 2, true); // Dibujar un punto usando la funcion arc
         ctx.fill(); // Terminar trazo
+
+        if(points[i].axis == 'y') {
+            //console.log("SE pinta en y");
+            ctx.strokeStyle = "red";
+            ctx.beginPath();
+            ctx.moveTo( (points[i].x + dez_x ) * trasladar, (10 + dez_y) * trasladar );
+            ctx.lineTo( (points[i].x + dez_x ) * trasladar, (-100 + dez_y) * trasladar );
+            ctx.stroke();
+        } else {
+            //console.log("SE pinta en X");
+
+            ctx.strokeStyle = "red";
+            ctx.beginPath();
+            ctx.moveTo( (-50 + dez_x ) * trasladar, (points[i].y + dez_y) * trasladar );
+            ctx.lineTo( (100 + dez_x ) * trasladar, (points[i].y + dez_y) * trasladar );
+            ctx.stroke();
+        }
+        
     }
 
-    // dibujar las lineas de la convex que ya pasaron
-
-    var rect_p1 = response_data['rect_p1'];
-    var rect_p2 = response_data['rect_p2'];
-
-    rect_p1.y *= -1;
-    rect_p2.y *= -1;
-
-    ctx.lineWidth = 4;
-    ctx.strokeStyle = "red";
-
-    ctx.beginPath();
-    ctx.moveTo((rect_p1.x + dez_x ) * trasladar, (rect_p1.y + dez_y) * trasladar);
-    ctx.lineTo((rect_p2.x + dez_x ) * trasladar, (rect_p1.y + dez_y) * trasladar);
-    ctx.stroke();
-
-    ctx.beginPath();
-    ctx.moveTo((rect_p1.x + dez_x ) * trasladar, (rect_p1.y + dez_y) * trasladar);
-    ctx.lineTo((rect_p1.x+ dez_x ) * trasladar, (rect_p2.y + dez_y) * trasladar);
-    ctx.stroke();
     
-    ctx.beginPath();
-    ctx.moveTo((rect_p1.x+ dez_x ) * trasladar, (rect_p2.y + dez_y) * trasladar);
-    ctx.lineTo((rect_p2.x+ dez_x ) * trasladar, (rect_p2.y + dez_y) * trasladar);
-    ctx.stroke();
 
-    ctx.beginPath();
-    ctx.moveTo((rect_p2.x+ dez_x ) * trasladar, (rect_p2.y + dez_y) * trasladar);
-    ctx.lineTo((rect_p2.x + dez_x ) * trasladar, (rect_p1.y + dez_y) * trasladar);
-    ctx.stroke();
-
+    if( steps == 0 ) {
+        steps = 2;
+        localStorage.setItem('steps', steps);
+    } else {
+        steps = steps + 1;
+        localStorage.setItem('steps', steps);
+    }
     
 }
