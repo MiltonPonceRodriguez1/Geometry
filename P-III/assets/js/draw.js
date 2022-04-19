@@ -7,9 +7,9 @@ function draw2D() {
     var neighbor = response_data['neighbor'];
     var user_point = response_data['user_point'];
     var steps = localStorage.getItem('steps');
-    var trasladar = 7;
-    var dez_x = 50;
-    var dez_y = 70;
+    var trasladar = 10;
+    var dez_x = 20;
+    var dez_y = 50;
     var pointSize = 4; 
     steps = parseInt(steps);
     
