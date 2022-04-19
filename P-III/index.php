@@ -1,7 +1,7 @@
 <!doctype html>
 <html>
 <head>
-    <title>Rangos Ortogonales</title>
+    <title>The Best Neighbor</title>
     <link rel="icon" type="image/x-icon" href="./assets/images/favicon.png">
 
     
@@ -26,7 +26,7 @@
 <body>
     <figure class="text-center">
         <blockquote class="blockquote">
-            <h1 class="mt-4">Tarea II - Geometría Computacional</h1>
+            <h1 class="mt-4">Tarea III - Geometría Computacional</h1>
         </blockquote>
         
         <div class="sub-text-h1">
@@ -71,8 +71,7 @@
     <div class="container justify-content-center">
             <div id="contenedor" class="justify-content-center">
                 <canvas class="lienzo rounded mt-4" width="1000" height="540" id="canvasDraw"
-                    style=""
-                >
+                    style="">
                     Your browser doesn't support canvas!
                 </canvas>
             </div>
