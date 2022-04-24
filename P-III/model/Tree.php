@@ -95,19 +95,6 @@ class Tree {
 	
 	}
 
-	public function printInOrder($node) {
-
-		if(is_null($node)) {
-			return;
-		}
-	
-		$this->printInOrder($node->left);
-	
-		echo '  ('.$node->point->getX().' , '.$node->point->getY().') <br>';
-	
-		$this->printInOrder($node->right);
-	}
-
 	public function dist_btw(Point $p1, Point $p2) {
 		return sqrt((pow(($p1->getX() - $p2->getX()), 2)) + (pow(($p1->getY() - $p2->getY()), 2)));
 	} 

@@ -44,6 +44,7 @@ function draw2D() {
             ctx.arc( (points[i].x + dez_x ) * trasladar , (points[i].y + dez_y) * trasladar, pointSize, 0, Math.PI * 2, true); 
             ctx.fill(); 
 
+            /* INICIO AQUI DIBUJO LAS LINEAS */
             if(points[i].axis == 'y') {
                 ctx.strokeStyle = "red";
                 ctx.beginPath();
@@ -57,6 +58,8 @@ function draw2D() {
                 ctx.lineTo((100 + dez_x ) * trasladar, (points[i].y + dez_y) * trasladar);
                 ctx.stroke();
             }
+
+            /* FIN AQUI DIBUJO LAS LINEAS */
         }
     } else  {
         for(i=0; i < points.length; i++) {
