@@ -70,7 +70,7 @@
 
     <div class="container justify-content-center">
             <div id="contenedor" class="justify-content-center">
-                <canvas class="lienzo rounded mt-4" width="1000" height="540" id="canvasDraw"
+                <canvas class="lienzo rounded mt-4" width="800" height="540" id="canvasDraw"
                     style="">
                     Your browser doesn't support canvas!
                 </canvas>
