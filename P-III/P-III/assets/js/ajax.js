@@ -8,7 +8,9 @@ $(document).ready(function() {
             data: $(this).serialize(),
             success: function(response) {
                 var response_data = JSON.parse(response);
-                console.log(response_data);
+                // console.log(response_data);
+
+                allPointsRight(response_data);
 
                 if (response_data.status == 'success') {
                     // Salvamos los resultados de Graham

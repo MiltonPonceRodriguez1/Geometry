@@ -4,7 +4,7 @@
     <title>The Best Neighbor</title>
     <link rel="icon" type="image/x-icon" href="./assets/images/favicon.png">
 
-    
+
     <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
 
     <!-- Boostrap -->
@@ -28,7 +28,7 @@
         <blockquote class="blockquote">
             <h1 class="mt-4">Tarea III - Geometría Computacional</h1>
         </blockquote>
-        
+
         <div class="sub-text-h1">
             <figcaption class="blockquote-footer">
                 <cite title="Source Title">Realizada por: </cite>Ponce Rodriguez Milton.
@@ -41,8 +41,8 @@
             <form id="loginform" method="post">
                 <div class="form-row row d-flex justify-content-center">
                     <div class="col-md-2"></div>
-                    
-                    
+
+
                     <div class="col-auto">
                         <input type="text" class="form-control mb-2" name="point_1" id="point_1" placeholder="Enter Point Neighbor: x, y">
                     </div>
@@ -60,12 +60,12 @@
                             DRAW
                         </button>
                     </div>
-                    
+
                 </div>
             </form>
         </div>
     </div>
-    
+
     <div class="clearfix"></div>
 
     <div class="container justify-content-center">
@@ -77,7 +77,7 @@
             </div>
     </div>
 
-    
+
 
     <script src="assets/js/ajax.js"></script>
     <script src="assets/js/draw.js"></script>

@@ -14,11 +14,12 @@ if(isset($_POST['point_1']) && !empty($_POST['point_1'])) {
     $post_data_1 = explode(",", $_POST['point_1']);
     $point_neighbor = new Point((float) $post_data_1[0], (float) $post_data_1[1]);
 
-    /*$array = array();
-    for ($i = 0; $i <= 50 ; $i++) { 
-        //$float = 0.3+ (rand(2,10)/10);
-        array_push($array, new Point((rand(0, 50)), (rand(0, 50))));
-    }*/
+    // $array = array();
+    // for ($i = 0; $i <= 50 ; $i++) {
+    //     //$float = 0.3+ (rand(2,10)/10);
+    //     array_push($array, new Point((rand(0, 50)), (rand(0, 50))));
+    // }
+
 
     $point1 = new Point(31, 40);
     $point2 = new Point(42, 35);
@@ -31,6 +32,7 @@ if(isset($_POST['point_1']) && !empty($_POST['point_1'])) {
     $point9 = new Point(45, 52);
     $point10 = new Point(6, 31);
     $array = array($point1, $point2, $point3, $point4, $point5, $point6, $point7, $point8, $point9, $point10);
+
 
     $tree = new Tree(null, $array[0]);
 
