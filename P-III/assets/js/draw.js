@@ -63,7 +63,7 @@ function draw2D() {
 
     ctx.font="italic 10pt Times New Roman, Verdana";
     ctx.fillStyle = "black";
-    ctx.fillText('user', (user_point[0].x +  dez_x + 2) * trasladar, (user_point[0].y +  dez_y) * trasladar, 250);
+    ctx.fillText('interest', (user_point[0].x +  dez_x + 1) * trasladar, (user_point[0].y +  dez_y) * trasladar, 250);
 
     ctx.fillStyle = "black";
 
@@ -82,6 +82,10 @@ function draw2D() {
         for(i=0; i<steps-1; i++) {
 
             if( points[i].x == neighbor[0].x && points[i].y == (neighbor[0]. y)) {
+                ctx.font="italic 10pt Times New Roman, Verdana";
+                ctx.fillStyle = "black";
+                ctx.fillText('best', (neighbor[0].x +  dez_x + 2) * trasladar, (neighbor[0].y +  dez_y) * trasladar, 250);
+                ctx.fillText('best', (neighbor[0].x +  dez_x + 2) * trasladar, (neighbor[0].y +  dez_y) * trasladar, 250);
                 ctx.fillStyle = "#F91010";
                 pointSize = 4;
             } else {
