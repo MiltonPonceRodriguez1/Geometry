@@ -39,6 +39,7 @@ label {
 .lienzo{ 
     border:1px solid #0e0c0c;  
     background-color: #c4c4c4;
+    margin-left: 150px;
 }
 
 .botons{

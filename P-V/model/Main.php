@@ -1,37 +1,6 @@
 <?php
 
-include_once 'Triangle.php';
-include_once 'Point.php';
-include_once 'Helpers.php';
-
-/*
-if ( isset($_POST['selectedPoints']) && !empty( json_decode($_POST['selectedPoints']) ) ) {
-
-    $selected_points =  json_decode($_POST['selectedPoints']);
-
-    $points = array();
-
-    for($i=0; $i<count($selected_points); $i++) {
-        array_push($points, new Point($selected_points[$i][0], $selected_points[$i][1]));
-    }
-
-    
-    $data = array(
-        'success' => 1,
-        'code' => 200,
-        'status' => 'success',
-        'points_delaunay' => 'none'
-    );
-
-    echo json_encode( $data );
-
-} else {
-    echo json_encode(array('success' => 0));
-}*/
-
-
-
-class Punto {
+class Point {
     public $x;
     public $y;
     public $color;
@@ -62,7 +31,7 @@ function metric($x, $y, $mt) {
 }
 
 function voronoi($points, $width, $height, $mt) {
-    $colors = array('#f68161', '#9cf661', '#61f6b9', '#61a5f6', '#c961f6', '#f661a2', '#4cf83b');
+    $colors = array('#f68161', '#9cf661', '#61f6b9', '#61a5f6', '#c961f6', '#f661a2', '#4cf83b', '#0eefa1', '#5dfb02', '#1502fb', '#fa21f3', '#faf021', '#f7c50f', '#04619d', '#6517f6', '#f61746');
     
     $w = $width; 
     $h = $height;
@@ -107,7 +76,7 @@ function voronoi($points, $width, $height, $mt) {
                 }
             }
             
-            array_push($limits, new Punto($x, $y, $_c[$j]));
+            array_push($limits, new Point($x, $y, $_c[$j]));
         }
         
     } 
