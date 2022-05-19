@@ -1,0 +1,46 @@
+body {
+    background-image: url("../images/connectwork.png");
+}
+
+h1 {
+    font-size: 45px;
+    font-family: 'Stint Ultra Condensed', cursive;
+    letter-spacing: 3px;
+    color: white;
+}
+
+label {
+    color: white;
+}
+
+.sub-text-h1 {
+    font-size: 18px;
+}
+
+.button-event-1 {
+    margin-left: 60px;
+}
+
+.button-event-2 {
+    margin-left: 60px;
+}
+
+.col-sep {
+    margin-left: 0px;
+}
+
+#contenedor {
+    box-sizing:border-box;
+    float:left;
+    width:50%;
+    padding-left: 19%;
+}
+
+.lienzo{ 
+    border:1px solid #0e0c0c;  
+    background-color: #c4c4c4;
+}
+
+.botons{
+    margin-left: 0px;
+}
